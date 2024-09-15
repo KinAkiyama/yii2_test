@@ -11,7 +11,7 @@ class AuthFillter extends ActionFilter
 {
     public function beforeAction($action)
     {
-        $token = Yii::$app->request->heasders->get('Authorization');
+        $token = Yii::$app->request->headers->get('Authorization');
 
         if (!$token) {
             throw new UnauthorizedHttpException('Authorization header required');

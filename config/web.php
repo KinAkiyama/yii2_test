@@ -15,6 +15,7 @@ $config = [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'UaXG9k5WtvVnr24-QSXvrAeZlZlKthgZ',
+            'enableCsrfValidation' => false,
             'parsers' => [
                 'application/json' => 'yii\web\JsonParser',
             ],
@@ -41,11 +42,11 @@ $config = [
             'showScriptName' => false,
             'rules' => [
                 'POST /login' => 'token/login',
-                'GET /me' => 'token/me',
-                'GET /users' => 'user/index',
-                'POST /users' => 'user/create',
-                'PATCH /users/<id:\d+>' => 'user/update',
-                'DELETE /users/<id:\d+>' => 'user/delete',
+                'GET /me' => 'user/get-user-info',
+                'GET /users' => 'admin/get-users',
+                'POST /users' => 'admin/create-user',
+                'PATCH /users/<id:\d+>' => 'admin/update-user',
+                'DELETE /users/<id:\d+>' => 'admin/delete-user',
             ],
         ],
 
@@ -60,15 +61,6 @@ $config = [
         ],
         'db' => $db,
     ],
-    // 'modules' => [
-    //     'api' => [
-    //         'class' => 'yii\rest\UrlRule',
-    //         'controllerNamespace' => 'app\controllers',
-    //         'as authFilter' => [
-    //             'class' => 'app\components\AuthFilter',
-    //         ],
-    //     ],
-    // ],
     'params' => $params,
 ];
 

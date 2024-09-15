@@ -3,7 +3,6 @@
 namespace app\controllers;
 
 use Yii;
-use yii\rest\ActiveController;
 use yii\rest\Controller;
 use app\models\User;
 use app\models\Token;
@@ -34,5 +33,4 @@ class TokenController extends Controller
 
         return ['token' => $token];
     }
-
 }
